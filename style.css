@@ -1,0 +1,441 @@
+/* ==========================================================================
+   1. IMPORT CZCIONKI & TWÓJ AUTORSKI MOTYW (Rdzeń z logo i wizytówki)
+   ========================================================================== */
+@import url('https://googleapis.com');
+
+:root {
+    --bg-page: #f9f9f9;
+    /* Jasne, eleganckie tło z wizytówki */
+    --bg-card: #ffffff;
+    /* Czyste, białe kafelki bento */
+    --text-main: #2B2A29;
+    /* Dokładny kolor grafitowy z Twojego logo SVG! */
+    --text-muted: #656565;
+    /* Stonowana, techniczna szarość z dolnego paska */
+    --border-color: #e8e8e8;
+    /* Subtelny, czysty obrys kafelków */
+
+    /* Ciepły, słoneczny gradient inspirowany kołem wokół litery "M" */
+    --accent-gradient: linear-gradient(135deg, #f3a913, #e65c00);
+    --accent-color: #f3a913;
+    /* Kolor bazowy do punktów list ■ */
+    --accent-glow: rgba(243, 169, 13, 0.06);
+    --shadow: 0 6px 24px rgba(43, 42, 41, 0.03);
+    /* Lekki cień oparty na tonacji logo */
+
+    --radius-bento: 16px;
+    /* Stały promień zaokrąglenia kafelków z Twojego rysunku */
+}
+
+/* Opcjonalny motyw ciemny - aktywowany suwakiem przez JS */
+[data-theme="dark"] {
+    --bg-page: #12131a;
+    --bg-card: #1a1c26;
+    --text-main: #e4e6eb;
+    --text-muted: #9ea4a9;
+    --border-color: #262938;
+    --accent-color: #f3a913;
+    --accent-glow: rgba(243, 169, 13, 0.15);
+    --shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   2. RESET I USTAWIENIA BAZOWE
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    min-height: 100vh;
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.portfolio-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   3. ARCHITEKTURA NOWEGO BENTO GRIDU (4-kolumnowy CSS Grid z makiety)
+   ========================================================================== */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 równe kolumny */
+    grid-auto-rows: minmax(130px, auto);
+    /* Stabilna baza wysokości rzędów */
+    gap: 20px;
+    /* Odstępy między kafelkami */
+}
+
+/* Wspólna klasa dla wszystkich kafelków */
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-bento);
+    padding: 28px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px var(--accent-glow);
+}
+
+/* PRECYZYJNE POZYCJONOWANIE KAFELKÓW Z TWÓJIEJ MAKIETY TYPU BENTO */
+.block-logo {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.block-name {
+    grid-column: 2 / 3;
+    grid-row: 1;
+    justify-content: center;
+}
+
+.block-contact {
+    grid-column: 3 / 5;
+    grid-row: 1;
+}
+
+.block-services {
+    grid-column: 1 / 4;
+    /* Zajmuje 3 kolumny po lewej stronie */
+    grid-row: 2 / 4;
+    /* Rozciąga się na dwa rzędy w dół, by wyrównać z prawą stroną */
+    justify-content: flex-start;
+    /* To poprawia błąd i wyrównuje zawartość do góry */
+}
+
+.block-aboutme {
+    grid-column: 4 / 5;
+    /* Pierwszy pionowy blok po prawej stronie */
+    grid-row: 2;
+    justify-content: flex-start;
+}
+
+.block-stats {
+    grid-column: 4 / 5;
+    /* Drugi blok po prawej stronie, idealnie pod "O mnie" */
+    grid-row: 3;
+    justify-content: flex-start;
+}
+
+/* ==========================================================================
+   4. STYLIZACJA ELEMENTÓW WEWNĘTRZNYCH (UI/UX)
+   ========================================================================== */
+
+/* Nagłówki w kafelkach */
+h1 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-main);
+}
+
+/* Podpisy i tagi */
+.subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.role-tag {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #e65c00;
+    background-color: rgba(243, 169, 13, 0.08);
+    padding: 4px 8px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-top: 10px;
+    width: fit-content;
+}
+
+/* Logo SVG z animacją mikro-interakcji */
+.unicorn-logo {
+    width: 85px;
+    height: 85px;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.block-logo:hover .unicorn-logo {
+    transform: scale(1.1) rotate(6deg);
+}
+
+/* Dane kontaktowe */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contact-item {
+    font-size: 1rem;
+}
+
+/* Struktura dwukolumnowa wewnątrz kafelka usług */
+.services-container {
+    display: flex;
+    gap: 24px;
+    margin-top: 8px;
+}
+
+.services-column {
+    flex: 1;
+}
+
+/* Teksty w kafelku O mnie */
+.aboutme-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.95rem;
+    line-height: 1.45;
+}
+
+.aboutme-content .lead-text {
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.aboutme-content .cta-text {
+    font-style: italic;
+    font-weight: 500;
+    margin-top: 4px;
+    color: var(--text-muted);
+}
+
+/* Tagi/odznaki ocen w statystykach */
+.badge {
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 4px;
+    display: inline-block;
+}
+
+.badge.score {
+    background-color: rgba(0, 204, 136, 0.1);
+    color: #008855;
+}
+
+.badge.theory {
+    background-color: rgba(0, 119, 255, 0.1);
+    color: #0055bb;
+}
+
+/* ==========================================================================
+   5. OBSŁUGA LIST PUNKTOWANYCH (Z Twoimi technicznymi kwadracikami ■)
+   ========================================================================== */
+.roboto-list {
+    list-style-type: none;
+}
+
+.roboto-list>li {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 18px;
+}
+
+.roboto-list>li:last-child {
+    margin-bottom: 0;
+}
+
+.roboto-list>li::before {
+    content: "■";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--accent-color);
+    font-size: 0.7rem;
+    transition: color 0.2s ease;
+}
+
+/* Podlisty (np. oceny z egzaminów) */
+.sub-list {
+    list-style-type: none;
+    margin-top: 6px;
+    margin-left: 8px;
+}
+
+.sub-list li {
+    margin-bottom: 4px;
+    padding-left: 14px;
+    position: relative;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.sub-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--text-muted);
+}
+
+strong {
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+/* ==========================================================================
+   6. SUWAK MOTYWÓW & STOPKA
+   ========================================================================== */
+.theme-switch-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-left: 4px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 22px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #cbd5e1;
+    transition: .3s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .3s;
+}
+
+input:checked+.slider {
+    background-color: var(--accent-color);
+}
+
+input:checked+.slider:before {
+    transform: translateX(22px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.switch-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   7. PEŁNA RESPONSYWNOŚĆ (RWD pod telefony i tablety)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        /* Przejście w jedną kolumnę na smartfonach */
+    }
+
+    .block-logo,
+    .block-name,
+    .block-contact,
+    .block-services,
+    .block-aboutme,
+    .block-stats {
+        grid-column: 1 / -1 !important;
+        grid-row: auto !important;
+        /* Resetowanie sztywnych wierszy grida */
+    }
+
+    .services-container {
+        flex-direction: column;
+        /* Lista usług układa się pionowo na telefonie */
+        gap: 16px;
+    }
+}
+
+/* ==========================================================================
+   STOPKA Z OZNACZENIEM PRAW AUTORSKICH (Zgodna z motywami)
+   ========================================================================== */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px 0;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    width: 100%;
+    grid-column: 1 / -1;
+    /* Bezpieczeństwo w CSS Grid */
+    border-top: 1px dashed var(--border-color);
+    /* Subtelne odcięcie od kafelków */
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+footer strong {
+    color: var(--text-main);
+    font-weight: 500;
+}

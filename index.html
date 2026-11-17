@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michał Udała-Biedak - Przyszły Product Designer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main class="portfolio-container">
+        <!-- SUWAK MOTYWU (Opcjonalny - jeśli chcesz go zostawić na stronie) -->
+        <div class="theme-switch-container">
+            <label class="switch">
+                <input type="checkbox" id="theme-toggle">
+                <span class="slider round"></span>
+            </label>
+            <span class="switch-label">Zmień motyw</span>
+        </div>
+        <!-- POTĘŻNA SIATKA BENTO (Twój nowy układ z makiety) -->
+        <div class="portfolio-grid">
+            <!-- KAFEL 1: LOGO -->
+            <header class="card block-logo">
+                <!-- Tutaj możesz wkleić bezpośrednio swój kod wektorowy <svg> z pliku logo -->
+                <div class="logo-wrapper">
+                    <svg viewBox="0 0 100 100" class="unicorn-logo">
+                        <defs>
+                            <!-- Precyzyjny gradient koła przechodzący od żółci do pomarańczu z Twojej wizytówki -->
+                            <linearGradient id="id0" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#F58734; stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#FFF212; stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Idealne, wektorowe koło z Twoim gradientem (.fil0) -->
+                        <circle cx="50" cy="50" r="38" style="fill:url(#id0); stroke:none;" />
+
+                        <!-- Wewnętrzne białe wycięcie, które tworzy elegancką obręcz -->
+                        <circle cx="50" cy="50" r="32" style="fill:#ffffff; stroke:none;" />
+
+                        <!-- Twoja firmowa, grafitowa litera M (.fil1) wyśrodkowana wewnątrz obręczy -->
+                        <text x="50" y="61"
+                            style="fill:#2B2A29; font-family: 'Playfair Display', 'Georgia', serif; font-size: 34px; font-weight: 700; font-style: italic; text-anchor: middle;">M</text>
+                    </svg>
+                </div>
+            </header>
+            <!-- KAFEL 2: IMIĘ I NAZWISKO -->
+            <section class="card block-name">
+                <div class="name-content">
+                    <h1>Michał Udała-Biedak</h1>
+                    <p class="subtitle">technik grafiki i poligrafii cyfrowej</p>
+                    <p class="role-tag">🎯 Przyszły Product Designer</p>
+                </div>
+            </section>
+            <!-- KAFEL 3: KONTAKT -->
+            <section class="card block-contact">
+                <h2>Kontakt</h2>
+                <div class="contact-info">
+                    <p class="contact-item">📧 e-mail: <strong>michaludala34@gmail.com</strong></p>
+                    <p class="contact-item">📞 tel: <strong>500 233 168</strong></p>
+                    <p class="contact-item city">📍 Region: <strong>Wrocław</strong></p>
+                </div>
+            </section>
+            <!-- KAFEL 4: USŁUGI (Wielki główny kafel z Twojej wizytówki) -->
+            <section class="card block-services">
+                <h2>Zakres oferowanych usług i kompetencji</h2>
+                <div class="services-container">
+                    <div class="services-column">
+                        <h3>🎨 Poligrafia i Kreacja Wizualna (PGF)</h3>
+                        <ul class="roboto-list">
+                            <li>Projektowanie unikalnych wizytówek, plakatów oraz pocztówek</li>
+                            <li>Tworzenie spójnych systemów logo, piktogramów i identyfikacji</li>
+                            <li>Projektowanie nowoczesnych opakowań, okładek oraz etykiet</li>
+                            <li>Profesjonalne przygotowanie materiałów do druku cyfrowego (DTP)</li>
+                            <li>Projektowanie spójnego brandingu, charakteru oraz osobowości marki</li>
+                            <li>Przygotowanie profesjonalnej impozycji użytków na arkuszu drukarskim</li>
+                            <li>Zarządzanie przestrzeniami barwnymi w standardach kolorystycznych CMYK, RGB, HSL, HSB,
+                                Lab</li>
+                            <li>Projektowanie szkiców i makiet produktów poligraficznych zgodnie z najnowszymi trendami
+                            </li>
+                            <li>Profesjonalne modyfikowanie i rekonstruowanie istniejących materiałów graficznych</li>
+                            <li>Zaawansowane obsługiwanie programów graficznych (CorelDraw, Photoshop, Blender, Krita,
+                                Figma, Canva)</li>
+                            <li>Wykonywanie profesjonalnej obróbki introligatorskiej wydruków (laminowanie, prasowanie,
+                                bigowanie)</li>
+                            <li>Wykorzystywanie specjalistycznych narzędzi generatywnych AI do podnoszenia jakości
+                                konceptów</li>
+                        </ul>
+                    </div>
+                    <div class="services-column">
+                        <h3>💻 Cyfrowy Product Design & IT (INF)</h3>
+                        <ul class="roboto-list">
+                            <li>Tworzenie interfejsów (UI/UX) do aplikacji webowych i desktopowych</li>
+                            <li>Projektowanie zorientowane na intuicyjność i doświadczenia użytkownika</li>
+                            <li>Budowanie nowoczesnych stron internetowych w standardzie Pixel-Perfect</li>
+                            <li>Optymalizacja kodu front-endowego pod kątem szybkości działania</li>
+                            <li>Zarabianie kabli RJ-45 w standardzie T568A i T568B</li>
+                            <li>Montowanie pamięci RAM (DDR4, DDR5), dysków SSD (SATA, NVMe) oraz napędów HDD</li>
+                            <li>Diagnozowanie oraz naprawianie błędów sprzętowych urządzeń peryferyjnych</li>
+                            <li>Instalowanie oraz aktualizowanie systemów operacyjnych z rodziny Windows</li>
+                            <li>Aktualizowanie sterowników układów graficznych GPU</li>
+                            <li>Formatowanie i partycjonowanie dysków twardych oraz nośników danych</li>
+                            <li>Konserwowanie układów chłodzenia w laptopach oraz konsolach PlayStation 5</li>
+                            <li>Konfigurowanie i optymalizowanie środowisk BIOS/UEFI</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <!-- KAFEL 5: O MNIE (Pionowy blok oparty o drugą stronę wizytówki) -->
+            <section class="card block-aboutme">
+                <h2>O mnie</h2>
+                <div class="aboutme-content">
+                    <p class="lead-text">Witam serdecznie! Mam na imię Michał.</p>
+                    <p>Jestem osobą odpowiedzialną, kompetentną i stale otwartą na dynamiczny rozwój.</p>
+                    <p>Zajmuję się profesjonalnym projektowaniem zarówno na potrzeby tradycyjnego druku, jak i
+                        nowoczesnego Internetu.</p>
+                    <p>W moich pracach dbam o każdy najmniejszy szczegół, bezkompromisową jakość oraz najwyższą
+                        estetykę.</p>
+                    <p>Z wielką chęcią podejmuję współpracę z klientami indywidualnymi oraz innowacyjnymi firmami.</p>
+                    <p class="cta-text">Zapraszam do kontaktu i wspólnego budowania unikalnych projektów!</p>
+                </div>
+            </section>
+            <!-- KAFEL 6: STATYSTYKI EGZAMINÓW -->
+            <section class="card block-stats" id="stats-kafel">
+                <h2>Statystyki i cele zawodowe</h2>
+                <div class="stats-content">
+                    <ul class="roboto-list">
+                        <li><strong>Egzamin PGF.04:</strong> <span class="badge score">97% praktyka</span> <span
+                                class="badge theory">80% teoria</span></li>
+                        <li><strong>Egzamin PGF.05:</strong> <span class="badge score">92% praktyka</span> <span
+                                class="badge theory">78% teoria</span></li>
+                        <li><strong>Wynik na dyplomie technika (PGF):</strong> <strong>90%</strong></li>
+                    </ul>
+                    <!-- Tutaj Twój skrypt JS automatycznie doklei interaktywny raport "Prognoza systemu IT" -->
+                </div>
+            </section>
+            <!-- STOPKA Z OZNACZENIEM PRAW AUTORSKICH -->
+            <footer>
+                <p>&copy; <span id="current-year"></span> Michał Udała-Biedak. Wszystkie prawa zastrzeżone.</p>
+            </footer>
+        </div>
+    </main>
+</body>
+</html>
